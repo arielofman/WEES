@@ -1,27 +1,20 @@
 {% extends 'coupon/base.html' %}
 {% load staticfiles %}
 
+{% load qr_tags %} 
+
 {% block customcss %}
 <link rel="stylesheet" type="text/css" href="{% static 'coupon/css/generate.css' %}">
 {% endblock %}
 
 {% block content %}
 	<div class="container-fluid">
-		<div class="row">
-	  		<div class="col-sm-3 col-sm-offset-3">
-		  		<div id="generate-wrapper"> 
-	  				<div class="row">
-	  					<div class="col-sm-12"> 
-	  						<div id="generate-label"> 
-							<span class="coupon-code">{{code}}</span>
-							</div>
-	  						<div id="generate-controls"> 
-							<button type="button" class="btn btn-success center-block">Generate Coupon</button>
-							</div>
-						</div>
-					</div>
-		  		</div>	
-	  		</div> 
+		<div class="row coupon-wrapper">
+	  		 <div class="col-sm-12"> 
+		  		 <div id="qrcode">
+		  		 {% qr_from_text "200" %}
+		  		 </div>
+	  		 </div> 
 	  	</div>
 	</div>	
 {% endblock %}
