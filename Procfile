@@ -1,0 +1,1 @@
+web: gunicorn QPON.wsgi --log-file -

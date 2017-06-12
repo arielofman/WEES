@@ -1,0 +1,7 @@
+__pycache__/
+staticfiles
+*.pyc
+projvenv
+migrations/
+.env
+settings_local.py
