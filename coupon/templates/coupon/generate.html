@@ -1,6 +1,27 @@
 {% extends 'coupon/base.html' %}
 {% load staticfiles %}
 
+{% block customcss %}
+<link rel="stylesheet" type="text/css" href="{% static 'coupon/css/generate.css' %}">
+{% endblock %}
+
 {% block content %}
-generate page
+	<div class="container-fluid">
+		<div class="row">
+	  		<div class="col-sm-3 col-sm-offset-3">
+		  		<div id="generate-wrapper"> 
+	  				<div class="row">
+	  					<div class="col-sm-12"> 
+	  						<div id="generate-label"> 
+							<span class="coupon-code">{{code}}</span>
+							</div>
+	  						<div id="generate-controls"> 
+							<button type="button" class="btn btn-success center-block">Generate Coupon</button>
+							</div>
+						</div>
+					</div>
+		  		</div>	
+	  		</div> 
+	  	</div>
+	</div>	
 {% endblock %}
