@@ -12,7 +12,8 @@
 		<div class="row coupon-wrapper">
 	  		 <div class="col-sm-12"> 
 		  		 <div id="qrcode">
-		  		 {% qr_from_text "200" %}
+		  		 <img class="coupon-img" src="{% static 'coupon/images/m-coupon.jpeg' %}" alt="{{ text }}" />
+		  		 {% qr_from_text "100" %}
 		  		 </div>
 	  		 </div> 
 	  	</div>

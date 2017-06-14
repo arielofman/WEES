@@ -3,11 +3,13 @@
 }
 
 body {
+    background: #f6d9eb;
     width: 100%;
     height: 100%;
 }
 
 .col-sm-12 {
+    height: 100%;
     padding: 0px !important;
     margin: 0px !important;
 }
@@ -15,9 +17,10 @@ body {
 .container-fluid {
     padding: 0px !important;
     margin: 0px !important;
+    height: 100%;
 }
 
-.coupon-wrapper { 
+.coupon-wrapper {
     margin-top: 100px;
     height: 100%;
     width: 100%;
@@ -26,14 +29,64 @@ body {
 }
 
 #qrcode {
+    position: relative;
     width: 100%;
     height: 100%;
 }
 
 .qrcode-img {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 15%;
     display: block;
-    margin: 0 auto;
 }
 
+.coupon-img {
+    width: 100%;
+    height: 100%;
+}
+ 
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+    .qrcode-img {
+        height: 80px;
+    }
+}
+
+ 
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+    .qrcode-img {
+        height: 110px;
+    }
+}
+
+
 /* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {}
+
+@media screen and (min-width: 768px) {
+    #qrcode {
+        position: relative;
+        width: 380px;
+        height: 500px;
+    }
+}
+
+@media (min-width:961px) {
+    /* tablet, landscape iPad, lo-res laptops ands desktops */
+    #qrcode {
+        position: relative;
+        width: 380px;
+        height: 500px;
+    }
+}
+
+@media (min-width:1025px) {
+    /* big landscape tablets, laptops, and desktops */
+}
+
+@media (min-width:1281px) {
+    /* hi-res laptops and desktops */
+}
