@@ -23,7 +23,7 @@ def get_client_ip(request):
     return ip
 
 def create_coupon(customer_obj, coupon_expires):
-	coupon_uid = get_random_string(length=32)  
+	coupon_uid = get_random_string(length=23)  
 	now = timezone.now()
 	Coupon.objects.create(coupon_code=coupon_uid, 
 		customer_fk=customer_obj, 
