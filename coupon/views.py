@@ -9,6 +9,8 @@ from accounts.models import Customer
 
 from django.core.exceptions import ObjectDoesNotExist
 
+from django.contrib.auth.decorators import login_required 
+
 import datetime
 from django.utils import timezone
 
@@ -24,7 +26,7 @@ def create_coupon(customer_obj, coupon_expires):
 	coupon_uid = get_random_string(length=32)  
 	now = timezone.now()
 	Coupon.objects.create(coupon_code=coupon_uid, 
-		ip_address=customer_obj, 
+		customer_fk=customer_obj, 
 		date_created=now,
 		redeemed=False,
 		expires=coupon_expires).save() 
@@ -41,7 +43,7 @@ def generate(request, **kwargs):
 
 	now = timezone.now() 
 
-	coupons = Coupon.objects.select_related('ip_address').filter(ip_address__ip_address=customer_ip)
+	coupons = Coupon.objects.select_related('customer_fk').filter(customer_fk__ip_address=customer_ip)
 	
 	# rate at which customers can generate new coupons
 	refresh_rate = datetime.timedelta(hours=24)
@@ -82,14 +84,61 @@ def generate(request, **kwargs):
 		else:
 			# redirect user to page saying "Please wait 
 			# 24 hours before generating new coupon"
-			print("Please wait 24 hours before generating a new coupon.")
+			return render(request, "coupon/used_coupon.html")
 	# the customer has no coupons 
-	else:
+	else: 
 		coupon_uid = create_coupon(customer, expiration) 
-
-	#TODO: if code is NONE, show error page
+ 
 	return render(request, "coupon/generate.html", {"code": coupon_uid})
-
+ 
 def redeem(request, **kwargs):
 	# When you redeem coupon, your refresh is set to the date and time u redeemed coupon
-	return render(request, "coupon/redeem.html", {"code": kwargs['code']})
+
+	if(request.method == "POST"):
+		# check if coupon ID is valid
+		try:
+			coupon = Coupon.objects.get(coupon_code=kwargs['code'])
+		except ObjectDoesNotExist:
+			return render(request, "coupon/invalid_coupon.html", {"code": kwargs['code']})
+		
+		date_created = coupon.date_created
+		date_expires = coupon.expires 
+
+		now = timezone.now()
+ 
+		# set the coupon as redeemed
+		setattr(coupon, 'redeemed', True)
+		setattr(coupon, 'date_redeemed', now)
+		coupon.save()
+
+		coupon.customer_fk.refresh = now
+
+		# update when it was redeemed for data
+		return render(request, "coupon/redeem.html", {"code": kwargs['code'], "expires":date_expires, "created":date_created})
+	
+	else:
+		# check if coupon ID is valid
+		try:
+			coupon = Coupon.objects.get(coupon_code=kwargs['code'])
+		except ObjectDoesNotExist:
+			return render(request, "coupon/invalid_coupon.html", {"code": kwargs['code']})
+		
+		date_created = coupon.date_created
+		date_expires = coupon.expires 
+
+		now = timezone.now()
+
+		# the coupon has already been redeemed
+		if(coupon.redeemed):
+			date_redeemed = coupon.date_redeemed
+			return render(request, "coupon/already_redeemed.html", {"code": kwargs['code'], "expires":date_expires, "created":date_created, "redeemed": date_redeemed})
+		# the coupon expired
+		elif(date_expires <= now):
+			return render(request, "coupon/expired.html", {"code": kwargs['code'], "expires":date_expires, "created":date_created})
+		# page to redeem coupon
+		else:
+			return render(request, "coupon/redeem.html", {"code": kwargs['code'], "expires":date_expires, "created":date_created})
+	
+
+	
+ 

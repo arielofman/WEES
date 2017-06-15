@@ -1,0 +1,25 @@
+{% extends 'coupon/base.html' %}
+{% load staticfiles %}
+
+{% block customcss %}
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+
+<link rel="stylesheet" type="text/css" href="{% static 'coupon/css/redeem.css' %}">
+{% endblock %}
+
+{% block content %}
+	<div class="container-fluid">
+		<div class="row coupon-wrapper">
+	  		 <div class="col-sm-12">  
+			  <div id="summary">
+			    <h1>Code Redeem</h1>
+			    <label><strong>CODE:</strong> {{code}}</label> 
+			    <div class="center-buttons">
+				    <label class="expired"><strong>INVALID COUPON UID</strong></label>
+			    </div>
+			  </div> 
+	  		 </div> 
+	  	</div>
+	</div>	
+{% endblock %}
+

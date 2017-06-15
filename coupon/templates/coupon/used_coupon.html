@@ -1,0 +1,17 @@
+{% extends 'coupon/base.html' %} 
+{% load staticfiles %} 
+{% block customcss %}
+<link rel="stylesheet" type="text/css" href="{% static 'coupon/css/used_coupon.css' %}"> 
+{% endblock %} 
+
+{% block content %}
+<div class="container-fluid">
+    <div class="jumbotron vertical-center"> 
+        <div class="container">
+            <h2>Sorry :'(</h2>
+            <p>You can only generate 1 coupon per day.</p>
+            <img class="froyo-img" src="http://www.menchies.com/images/characters/barry.png"></img>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -17,34 +17,11 @@
 			    <label><strong>DATE CREATED: {{created}}</strong></label>
 			    <label><strong>EXPIRES: {{expires}}</strong></label>
 			    <div class="center-buttons">
-				    <button class="redeem-coupon">Redeem</button>
-				    <button class="cancel-coupon">Cancel</button>
+				    <label class="expired"><strong>EXPIRED</strong></label>
 			    </div>
 			  </div> 
 	  		 </div> 
 	  	</div>
 	</div>	
-{% endblock %}
-
-{% block customjs %}
-	<script>
-	$('.redeem-coupon').click(function(e) {
-	  e.stopPropagation();
-  
-	  $.ajax({
-	        method: "POST",
-	        url: "#",
-	        data: {
-	            csrfmiddlewaretoken: '{{ csrf_token }}',
-	            code: '{{ code }}', 
-	        },
-	        success: function(data, textStatus) {
-	        	$('.center-buttons').html('<label class="expired"><strong>SUCCESSFULLY REDEEMED!</strong></label>');
-	        },
-	    }).done(function(msg) {
-	        console.log("Redeemed coupon!");
-	    }); 
-	});
-	</script>
 {% endblock %}
 

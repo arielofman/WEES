@@ -6,9 +6,10 @@ from accounts.models import Customer
 
 class Coupon(models.Model):
 	coupon_code = models.CharField(unique=True, max_length=150)
-	ip_address = models.ForeignKey(Customer, on_delete=models.CASCADE)
+	customer_fk = models.ForeignKey(Customer, on_delete=models.CASCADE)
 	date_created = models.DateTimeField()
 	redeemed = models.BooleanField(default=False)
+	date_redeemed = models.DateTimeField(null=True)
 	expires = models.DateTimeField()
 
 	def __str__(self):
