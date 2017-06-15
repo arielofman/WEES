@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:900');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+body,
+html {
+    height: 100%;
+    background-color: #e4e4e4;
+    margin-top: 50px;
+}
+
+h2 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 900;
+    font-size: 72px;
+    color: #f36966;
+    text-align: center;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-size: 11px;
+    color: #7c7d7e;
+}
+
+.froyo-img {
+    display: block;
+    margin: 0 auto;
+}
+
+/* for iPhone 4 */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 2/3) and (orientation:portrait) {
+    html {
+        margin-top: 0px;
+    }
+}

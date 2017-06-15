@@ -1,0 +1,18 @@
+{% extends 'commons/base.html' %} 
+{% load staticfiles %} 
+
+{% block customcss %}
+<link rel="stylesheet" type="text/css" href="{% static 'commons/css/error404.css' %}">
+{% endblock %}
+
+{% block content %} 
+	<div class="container-fluid">
+		<div class="row">
+	  		 <div class="col-sm-12">  
+	  		 <h2>Oops!</h2>
+	  		 <p>We can’t seem to find the page you’re looking for.</p>
+	  		 <img class="froyo-img" src="{% static 'commons/images/froyo.png' %}"/> 
+	  		 </div> 
+	  	</div>
+	</div>	
+{% endblock %}

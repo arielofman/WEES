@@ -27,9 +27,10 @@ try:
 except KeyError:
     pass
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ["qrcoupon.herokuapp.com"]
 
 INSTALLED_APPS = [
+    'commons',
     'accounts',
     'coupon',
     'django.contrib.admin',
@@ -116,8 +117,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
-
+USE_TZ = True 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
@@ -130,10 +130,6 @@ STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
 
-# Simplified static file serving.
-# https://warehouse.python.org/project/whitenoise/
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-
 try:
     from .settings_local import *
 except ImportError:
@@ -141,3 +137,6 @@ except ImportError:
 
     db_from_env = dj_database_url.config()
     DATABASES['default'].update(db_from_env)
+
+    # Simplified static file serving.
+    STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'

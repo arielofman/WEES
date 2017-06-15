@@ -18,8 +18,12 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 
-urlpatterns = [
+from django.conf.urls import handler404 
+
+urlpatterns = [ 
     url(r'^admin/', admin.site.urls),
     url(r'^coupon/', include('coupon.urls')),
     url(r'^accounts/', include('accounts.urls')), 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+handler404 = "commons.views.error404"
