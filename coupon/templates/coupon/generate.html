@@ -1,21 +1,14 @@
-{% extends 'coupon/base.html' %}
-{% load staticfiles %}
+{% extends 'coupon/base.html' %} {% load staticfiles %} {% load qr_tags %} {% block customcss %}
+<link rel="stylesheet" type="text/css" href="{% static 'coupon/css/generate.css' %}"> {% endblock %} {% block content %}
+<div class="container-fluid">
+    <div class="row coupon-wrapper">
+        <div class="col-sm-12"> 
+            <div id="coupon-container">
+            <img class="coupon-img img-responsive" src="{% static 'coupon/images/coupon-bg.jpg' %}" alt="{{ text }}" />
+            {% qr_from_text "100" %}        
+            </div>
 
-{% load qr_tags %} 
-
-{% block customcss %}
-<link rel="stylesheet" type="text/css" href="{% static 'coupon/css/generate.css' %}">
-{% endblock %}
-
-{% block content %}
-	<div class="container-fluid">
-		<div class="row coupon-wrapper">
-	  		 <div class="col-sm-12"> 
-		  		 <div id="qrcode">
-		  		 <img class="coupon-img" src="{% static 'coupon/images/m-coupon.jpeg' %}" alt="{{ text }}" />
-		  		 {% qr_from_text "100" %}
-		  		 </div>
-	  		 </div> 
-	  	</div>
-	</div>	
-{% endblock %}
+        </div>
+    </div>
+</div>
+{% endblock %} 

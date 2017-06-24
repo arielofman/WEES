@@ -10,6 +10,7 @@ class Coupon(models.Model):
 	date_created = models.DateTimeField()
 	redeemed = models.BooleanField(default=False)
 	date_redeemed = models.DateTimeField(null=True)
+	start_date = models.DateTimeField()
 	expires = models.DateTimeField()
 
 	def __str__(self):
