@@ -97,6 +97,7 @@ def generate(request, **kwargs):
  
 	return render(request, "coupon/generate.html", {"code": coupon_uid})
  
+@login_required(login_url='/error/', redirect_field_name=None)
 def redeem(request, **kwargs):
 	if(request.method == "POST"):
 		# check if coupon ID is valid
