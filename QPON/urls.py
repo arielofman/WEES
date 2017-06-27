@@ -18,9 +18,12 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 
+from django.views.generic import RedirectView
+
 from django.conf.urls import handler404 
 
 urlpatterns = [ 
+    url(r'^$', RedirectView.as_view(url='coupon/generate', permanent=False)),
     url(r'^admin/', admin.site.urls),
     url(r'^coupon/', include('coupon.urls')),
     url(r'^accounts/', include('accounts.urls')), 
