@@ -48,7 +48,7 @@ def generate(request, **kwargs):
 	coupons = Coupon.objects.select_related('customer_fk').filter(customer_fk__ip_address=customer_ip)
 	
 	# rate at which customers can generate new coupons
-	refresh_rate = datetime.timedelta(hours=24)
+	refresh_rate = datetime.timedelta(hours=12)
 	# a set expiration for all coupons
 
 	# expires july 2nd 11:59
