@@ -10,7 +10,7 @@ html {
 h2 {
     font-family: 'Lato', sans-serif;
     font-weight: 900;
-    font-size: 72px;
+    font-size: 62px;
     color: #f27b8a;
     text-align: center;
 }
@@ -33,7 +33,7 @@ p {
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 2/3) and (orientation:portrait) {
     h2 {
-        font-size: 52px;
+        font-size: 40px;
     }
     p { 
 	    font-size: 11px !important; 

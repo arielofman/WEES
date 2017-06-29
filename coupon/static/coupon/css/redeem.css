@@ -81,6 +81,10 @@ label {
     white-space: nowrap;
 }
 
+label#no-transform {
+    text-transform: none;
+}
+
 input:focus,
 input:active {
     background: #fe97c0;
