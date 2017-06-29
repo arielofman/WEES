@@ -1,30 +1,24 @@
 {% extends 'coupon/base.html' %} {% load staticfiles %} {% load qr_tags %} {% block customcss %}
-<link rel="stylesheet" type="text/css" href="{% static 'coupon/css/generate.css' %}"> {% endblock %} 
-
-{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'coupon/css/generate.css' %}"> {% endblock %} {% block content %}
 <div class="container-fluid">
     <div class="row coupon-wrapper">
-        <div class="col-sm-12"> 
-            <div class="no-print">
-            <button type="button" class="btn btn-success btn-sm" onClick="window.print();">
-              <span class="glyphicon glyphicon-print"></span> Print
-            </button>
-            </div>
+        <div class="col-sm-12">
             <div id="coupon-container">
-            
-            <img class="coupon-img img-responsive" src="{% static 'coupon/images/coupon-bg.jpg' %}" alt="{{ text }}" />
-            {% qr_from_text "100" %}        
+                <div class="no-print print-bar">
+                    <button type="button" class="btn btn-success btn-sm" onClick="window.print();">
+                        <span class="glyphicon glyphicon-print"></span> Print
+                    </button>
+                    <span id="instructions">print or present coupon on your mobile device!</span>
+                </div>
+                <img class="coupon-img img-responsive" src="{% static 'coupon/images/coupon-bg.jpg' %}" alt="{{ text }}" /> {% qr_from_text "100" %}
             </div>
-
         </div>
     </div>
 </div>
-{% endblock %} 
-
-{% block customjs %}
+{% endblock %} {% block customjs %}
 <script>
 $("body").on("contextmenu", "img", function(e) {
-  return false;
+    return false;
 });
- </script>
-{% endblock %} 
+</script>
+{% endblock %}

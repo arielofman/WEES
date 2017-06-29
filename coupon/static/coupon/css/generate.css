@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 * {
     box-sizing: border-box;
 }
@@ -31,6 +32,17 @@ body {
     position: relative;
 }
 
+.print-bar {
+    background: white;
+    text-align: center;
+}
+
+span#instructions {
+    font-family: 'Roboto', sans-serif;
+    font-size: 11px;
+    color: #7c7d7e;
+}
+
 .qrcode-img {
     position: absolute;
     bottom: 4%;
@@ -49,5 +61,8 @@ body {
 @media (min-width:450px) {
     .coupon-img {
         width: 450px;
+    }
+    span#instructions {
+        font-size: 15px;
     }
 }
