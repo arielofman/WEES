@@ -27,7 +27,7 @@ try:
 except KeyError:
     pass
 
-ALLOWED_HOSTS = ["qrcoupon.herokuapp.com"]
+ALLOWED_HOSTS = ["qrcoupon.herokuapp.com","menchiesoakridges.com","www.menchiesoakridges.com"]
 
 INSTALLED_APPS = [
     'commons',
