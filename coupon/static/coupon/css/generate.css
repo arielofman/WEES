@@ -39,6 +39,13 @@ body {
     height: 15%;
 }
 
+@media print {
+    #coupon-container {
+        height: 60% !important;
+        width: 60% !important;
+    }
+}
+
 @media (min-width:450px) {
     .coupon-img {
         width: 450px;
