@@ -51,6 +51,10 @@ span#instructions {
     height: 15%;
 }
 
+img {
+    pointer-events: none;
+}
+
 @media print {
     #coupon-container {
         height: 60% !important;
