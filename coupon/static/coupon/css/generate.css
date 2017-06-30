@@ -53,6 +53,7 @@ span#instructions {
 
 img {
     pointer-events: none;
+    -webkit-user-select: none;
 }
 
 @media print {
