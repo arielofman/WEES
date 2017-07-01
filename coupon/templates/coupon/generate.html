@@ -20,7 +20,7 @@
         </div>
     </div>
     <!-- Creates the bootstrap modal where the image will appear -->
-<div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade no-print" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -45,7 +45,7 @@ $("body").on("contextmenu", "img", function(e) {
 
 $(document).ready(function() {
     $(window).focus(function() {
-      location.reload();
+      location.reload(true);
     });
 });
 
