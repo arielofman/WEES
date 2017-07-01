@@ -10,8 +10,13 @@
                     </button>
                     <span id="instructions">print or present coupon on your mobile device!</span>
                 </div>
-                <img class="coupon-img img-responsive" src="{% static 'coupon/images/coupon-bg.jpg' %}" alt="{{ text }}" /> {% qr_from_text "100" %}
+                <img class="coupon-img img-responsive" src="{% static 'coupon/images/coupon-bg.jpg' %}" alt="{{ text }}" /> {% qr_from_text "100" %} 
             </div>
+        </div>
+        <div class="col-sm-12">
+        <span id="like-us-text">Like us on Facebook! <span class="glyphicon glyphicon-heart"></span></span>
+        <div class="fb-like" data-href="https://www.facebook.com/menchiesoakridges/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+
         </div>
     </div>
 </div>
@@ -20,5 +25,14 @@
 $("body").on("contextmenu", "img", function(e) {
     return false;
 });
+
+
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9&appId=971705052963305";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
 </script>
 {% endblock %}
