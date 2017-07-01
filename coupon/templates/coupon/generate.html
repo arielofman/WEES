@@ -26,6 +26,11 @@ $("body").on("contextmenu", "img", function(e) {
     return false;
 });
 
+$(document).ready(function() {
+    $(window).focus(function() {
+      location.reload();
+    });
+});
 
 (function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];

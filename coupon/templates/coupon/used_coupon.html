@@ -15,3 +15,13 @@
     </div>
 </div>
 {% endblock %}
+
+{% block customjs %}
+<script> 
+$(document).ready(function() {
+    $(window).focus(function() {
+      location.reload();
+    });
+});
+</script>
+{% endblock %} 
