@@ -60,10 +60,10 @@ span#like-us-text {
 
 .qrcode-img {
     position: absolute;
-    bottom: 4%;
-    right: 4%;
-    width: 20%;
-    height: 15%;
+    bottom: 0%;
+    right: 0%;
+    width: 27%;
+    height: 20%;
 }
 
 img {
