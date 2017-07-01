@@ -10,32 +10,31 @@
                     </button>
                     <span id="instructions">print or present coupon on your mobile device!</span>
                 </div>
-                <img class="coupon-img img-responsive" src="{% static 'coupon/images/coupon-bg.jpg' %}" alt="{{ text }}" /> {% qr_from_text "100" %} 
+                <img class="coupon-img img-responsive" src="{% static 'coupon/images/coupon-bg.jpg' %}" alt="{{ text }}" /> {% qr_from_text "100" %}
             </div>
         </div>
         <div class="col-sm-12 no-print">
-        <span id="like-us-text">Like us on Facebook! <span class="glyphicon glyphicon-heart"></span></span>
-        <div class="fb-like" data-href="https://www.facebook.com/menchiesoakridges/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
-
+            <span id="like-us-text">Like us on Facebook! <span class="glyphicon glyphicon-heart"></span></span>
+            <div class="fb-like" data-href="https://www.facebook.com/menchiesoakridges/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
         </div>
     </div>
     <!-- Creates the bootstrap modal where the image will appear -->
-<div class="modal fade no-print" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel">QR Code</h4>
-      </div>
-      <div class="modal-body">
-       <center> <img src="" id="imagepreview" style="width: 90%; height: 90%;" ></center>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
+    <div class="modal fade no-print" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">QR Code</h4>
+                </div>
+                <div class="modal-body">
+                    <center> <img src="" id="imagepreview" style="width: 90%; height: 90%;"></center>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 </div>
 {% endblock %} {% block customjs %}
 <script>
@@ -45,21 +44,23 @@ $("body").on("contextmenu", "img", function(e) {
 
 $(document).ready(function() {
     $(window).focus(function() {
-      location.reload(true);
+        location.reload(true);
     });
 });
 
+// qrcode modal
 $("#coupon-container").on("click", function() {
-   $('#imagepreview').attr('src', $('.qrcode-img').attr('src')); // here asign the image to the modal when the user click the enlarge link
-   $('#imagemodal').modal('show'); // imagemodal is the id attribute assigned to the bootstrap modal, then i use the show function
+    $('#imagepreview').attr('src', $('.qrcode-img').attr('src'));  
+    $('#imagemodal').modal('show');  
 });
 
 (function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9&appId=971705052963305";
-  fjs.parentNode.insertBefore(js, fjs);
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9&appId=971705052963305";
+    fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 </script>
 {% endblock %}
