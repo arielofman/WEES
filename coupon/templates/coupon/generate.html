@@ -4,15 +4,17 @@
     <div class="row coupon-wrapper">
         <div class="col-sm-12">
             <div id="coupon-container">
-                <div class="no-print print-bar">
-                    <button type="button" class="btn btn-success btn-sm" onClick="window.print();">
+                <div class="print-bar">
+                    <button type="button" class="btn btn-success btn-sm no-print" onClick="window.print();">
                         <span class="glyphicon glyphicon-print"></span> Print
                     </button>
-                    <span id="instructions">print or present coupon on your mobile device!</span>
+                    <span class="no-print" id="instructions">print or present coupon on your mobile device!
+                    </br></span>
+                    <span id="coupon-code"><strong>CODE:</strong> {% qr_code_text %}</span>
                 </div>
-                <img class="coupon-img img-responsive" src="{% static 'coupon/images/coupon-bg.jpg' %}" alt="{{ text }}" /> {% qr_from_text "100" %}
+                <img class="coupon-img img-responsive" src="{% static 'coupon/images/coupon-bg.jpg' %}" alt="{{ text }}" /> {% qr_from_text "100" %} 
             </div>
-        </div>
+        </div>  
         <div class="col-sm-12 no-print">
             <span id="like-us-text">Like us on Facebook! <span class="glyphicon glyphicon-heart"></span></span>
             <div class="fb-like" data-href="https://www.facebook.com/menchiesoakridges/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
@@ -45,11 +47,11 @@
                     <h4 class="modal-title">Instructions</h4>
                 </div>
                 <div class="modal-body">
-                    <p><strong>IMPORTANT:</strong> No copies of coupon accepted! Every code is unique.</p>
+                    <p><strong>IMPORTANT:</strong> Copies of coupon will <b>NOT</b> be accepted! Every code is unique per household.</p>
                     </br>
-                    <p><strong>SCREENSHOTING COUPON:</strong> If you decide to screenshot the coupon, press anywhere on the coupon and screenshot the large QR code image that will pop up.</p>
+                    <p><strong>SCREENSHOTING COUPON (NOT RECOMMENDED):</strong> If you decide to screenshot the coupon, press anywhere on the coupon image and screenshot the large QR code that pops up.</p>
                     </br>
-                    <strong>HOW IT WORKS:</strong> Print or present coupon on your smartphone and we will scan your QR Code to redeem the offer.
+                    <p><strong>HOW IT WORKS:</strong> Print or present coupon on your smartphone and we will scan your QR code to redeem offer.</p>  
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Yes, I understand.</button>
@@ -58,15 +60,15 @@
         </div>
     </div>
 </div>
-{% endblock %} {% block customjs %}
+{% endblock %} 
+{% block customjs %}
 <script>
 $("body").on("contextmenu", "img", function(e) {
     return false;
 });
 
-
+// pop up with instructions every page refresh
 $('#myModal').modal('show');
-
 
 // qrcode modal
 $("#coupon-container").on("click", function() {

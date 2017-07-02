@@ -33,6 +33,11 @@ body {
 #coupon-container {
     float: left;
     position: relative;
+    overflow: hidden;
+}
+
+#coupon-code {
+    font-family: 'Roboto', sans-serif; 
 }
 
 .print-bar {
@@ -60,7 +65,7 @@ span#like-us-text {
 
 .qrcode-img {
     position: absolute;
-    bottom: 4%;
+    bottom: 3%;
     right: 4%;
     width: 20%;
     height: 15%;
