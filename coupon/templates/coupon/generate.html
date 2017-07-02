@@ -35,17 +35,43 @@
             </div>
         </div>
     </div>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Instructions</h4>
+                </div>
+                <div class="modal-body">
+                    <p><strong>IMPORTANT:</strong> No copies of coupon accepted! Every code is unique.</p>
+                    </br>
+                    <p><strong>SCREENSHOTING COUPON:</strong> If you decide to screenshot the coupon, press anywhere on the coupon and screenshot the large QR code image that will pop up.</p>
+                    </br>
+                    <strong>HOW IT WORKS:</strong> Print or present coupon on your smartphone and we will scan your QR Code to redeem the offer.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Yes, I understand.</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %} {% block customjs %}
 <script>
 $("body").on("contextmenu", "img", function(e) {
     return false;
-}); 
+});
+
+
+$('#myModal').modal('show');
+
 
 // qrcode modal
 $("#coupon-container").on("click", function() {
-    $('#imagepreview').attr('src', $('.qrcode-img').attr('src'));  
-    $('#imagemodal').modal('show');  
+    $('#imagepreview').attr('src', $('.qrcode-img').attr('src'));
+    $('#imagemodal').modal('show');
 });
 
 (function(d, s, id) {
