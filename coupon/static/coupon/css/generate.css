@@ -36,6 +36,14 @@ body {
     overflow: hidden;
 }
 
+.modal-body {
+   max-height: auto;
+   font-size: 13px;
+   overflow-y: scroll;
+   padding: 13px;
+   padding-bottom: 0px;
+}
+
 #coupon-code {
     font-family: 'Roboto', sans-serif; 
 }
