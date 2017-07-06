@@ -30,12 +30,15 @@ strong {
 input,
 button,
 textarea,
-.redeem-coupon, .cancel-coupon {
+.redeem-coupon, .scan-again {
     display: inline-block;
     transition: all .4s ease-in-out;
     margin: 0 auto;
 }
 
+.scan-again {
+    height: 100px;
+}
 
 input { 
     position: relative;
@@ -131,6 +134,22 @@ button {
 button:hover {
     background: #fe97c0;
     color: white;
+}
+
+.scan-again:hover { 
+    background: #fafafc;
+    width:100%;
+    color: #fe97c0;
+}
+
+.scan-diff-syle {
+    height: auto;
+}
+
+.scan-diff-syle:hover {
+    background: #fe97c0;
+    color: white;
+    width:49%; 
 }
 
 .expired {

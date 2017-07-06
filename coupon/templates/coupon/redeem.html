@@ -19,7 +19,7 @@
 			    <label><strong>EXPIRES:</strong> {{expires}}</label>
 			    <div class="center-buttons">
 				    <button class="redeem-coupon">Redeem</button>
-				    <button class="cancel-coupon">Cancel</button>
+				    <button class="scan-again scan-diff-syle">Scan Again</button>
 			    </div>
 			  </div> 
 	  		 </div> 
@@ -40,7 +40,7 @@
 	            code: '{{ code }}', 
 	        },
 	        success: function(data, textStatus) {
-	        	$('.center-buttons').html('<label class="expired"><strong>SUCCESSFULLY REDEEMED!</strong></label>');
+	        	$('.center-buttons').html('<label class="expired"><strong>SUCCESSFULLY REDEEMED!</strong></label><button class="scan-again">Scan Again</button>');
 	        },
 	    }).done(function(msg) {
 	        console.log("Redeemed coupon!");
