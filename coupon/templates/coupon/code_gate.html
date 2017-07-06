@@ -23,12 +23,21 @@
 {% endblock %} 
 
 {% block customjs %}
-<script>
-$(document).keypress(function(e) {
-    if (e.which == 13) {
-        redeemCode();
+<script> 
+
+var typingTimer;                //timer identifier
+var doneTypingInterval = 2000;  //time in ms 
+
+$('#code').on('keyup keypress keydown', function() {
+    clearTimeout(typingTimer);
+    if ($('#code').val()) {
+        typingTimer = setTimeout(doneTyping, doneTypingInterval);
     }
 });
+
+function doneTyping () {
+    redeemCode();
+}
 
 $(".submit-btn").click(function() {
     redeemCode();
