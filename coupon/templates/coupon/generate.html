@@ -1,4 +1,4 @@
-{% extends 'coupon/base.html' %} {% load staticfiles %} {% load qr_tags %} {% block customcss %}
+{% extends 'coupon/base.html' %} {% load staticfiles %} {% load barcode_tags %} {% block customcss %}
 <link rel="stylesheet" type="text/css" href="{% static 'coupon/css/generate.css' %}"> {% endblock %} {% block content %}
 <div class="container-fluid">
     <div class="row coupon-wrapper">
@@ -10,9 +10,9 @@
                     </button>
                     <span class="no-print" id="instructions">print or present coupon on your mobile device!
                     </br></span>
-                    <span id="coupon-code"><strong>CODE:</strong> {% qr_code_text %}</span>
+                    <span id="coupon-code"><strong>CODE:</strong> {% barcode_text %}</span>
                 </div>
-                <img class="coupon-img img-responsive" src="{% static 'coupon/images/coupon-bg.jpg' %}" alt="{{ text }}" /> {% qr_from_text "100" %} 
+                <img class="coupon-img img-responsive" src="{% static 'coupon/images/coupon-bg.jpg' %}" alt="{{ text }}" /> {% bc_from_text %} 
             </div>
         </div>  
         <div class="col-sm-12 no-print">
@@ -26,7 +26,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                    <h4 class="modal-title" id="myModalLabel">QR Code</h4>
+                    <h4 class="modal-title" id="myModalLabel">Barcode</h4>
                 </div>
                 <div class="modal-body">
                     <center> <img src="" id="imagepreview" style="width: 90%; height: 90%;"></center>
@@ -47,15 +47,15 @@
                     <h4 class="modal-title">Instructions</h4>
                 </div>
                 <div class="modal-body">
-                    <p><strong>IMPORTANT:</strong> Coupon codes are unique. Don't print multiple copies.</p>
+                    <p><strong>IMPORTANT:</strong> Barcodes are unique. Don't print multiple copies.</p>
                     </br>
-                    <p><strong>SCREENSHOTING COUPON </strong><span style="color:red">(NOT RECOMMENDED)</span>: If you decide to screenshot the coupon, press anywhere on the coupon image and screenshot the large QR code that pops up.</p>
+                    <p><strong>SCREENSHOTING COUPON </strong><span style="color:red">(NOT RECOMMENDED)</span>: If you decide to screenshot the coupon, press anywhere on the coupon image and screenshot the large barcode that pops up.</p>
                     </br>
-                    <p><strong>HOW IT WORKS:</strong> Print or present coupon on your smartphone and we will scan your QR code to redeem offer. <u>Every coupon code can only be redeemed once</u>, but you can generate a new coupon the next day.</p>  
+                    <p><strong>HOW IT WORKS:</strong> Print or present coupon on your smartphone and we will scan your barcode to redeem offer. <u>Every coupon barcode can only be redeemed once</u>, but you can generate a new coupon the next day.</p>  
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Yes, I understand.</button>
-                </div>
+                </div> 
             </div>
         </div>
     </div>
@@ -70,10 +70,17 @@ $("body").on("contextmenu", "img", function(e) {
 // pop up with instructions every page refresh
 $('#myModal').modal('show');
 
-// qrcode modal
+// barcode modal
 $("#coupon-container").on("click", function() {
-    $('#imagepreview').attr('src', $('.qrcode-img').attr('src'));
+    $('#imagepreview').attr('src', $('.barcode-img').attr('src'));
     $('#imagemodal').modal('show');
+});
+ 
+$(function() {
+   $(window).keypress(function(e) {
+       var key = e.which;
+       console.log(key);
+   });
 });
 
 (function(d, s, id) {

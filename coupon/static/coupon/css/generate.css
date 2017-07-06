@@ -71,11 +71,11 @@ span#like-us-text {
     color: #f22f6a;
 }
 
-.qrcode-img {
+.barcode-img {
     position: absolute;
     bottom: 3%;
-    right: 4%;
-    width: 20%;
+    right: 0%; 
+    width: 35%;
     height: 15%;
 }
 

@@ -23,7 +23,7 @@ def get_client_ip(request):
     return ip
 
 def create_coupon(customer_obj, coupon_starts, coupon_expires):
-	coupon_uid = get_random_string(length=23)  
+	coupon_uid = get_random_string(length=9, allowed_chars="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")  
 	now = timezone.now()
 	Coupon.objects.create(coupon_code=coupon_uid, 
 		customer_fk=customer_obj, 
@@ -52,7 +52,7 @@ def generate(request, **kwargs):
 	# a set expiration for all coupons
 
 	# expires july 2nd 11:59
-	expiration = datetime.datetime(2017, 7, 2, 23, 59)
+	expiration = datetime.datetime(2018, 7, 2, 23, 59)
 
 	# check if customer is in the DB otherwise create new customer
 	try:
@@ -96,7 +96,11 @@ def generate(request, **kwargs):
 		coupon_uid = create_coupon(customer, COUPON_START, expiration) 
  
 	return render(request, "coupon/generate.html", {"code": coupon_uid})
- 
+
+@login_required(login_url='/error/', redirect_field_name=None)
+def code_gate(request, **kwargs):
+	return render(request, "coupon/code_gate.html")
+
 @login_required(login_url='/error/', redirect_field_name=None)
 def redeem(request, **kwargs):
 	if(request.method == "POST"):

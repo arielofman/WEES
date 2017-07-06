@@ -1,0 +1,43 @@
+{% extends 'coupon/base.html' %}
+{% load staticfiles %} 
+
+{% block customcss %}
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{% static 'coupon/css/codegate.css' %}"> 
+{% endblock %} 
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row coupon-wrapper">
+        <div class="col-sm-12">
+            <div id="summary">
+                <h1>Code Gate</h1>
+                <input id="code" autofocus></input>
+                <div class="center-buttons">
+                    <button class="submit-btn">Verify</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 
+
+{% block customjs %}
+<script>
+$(document).keypress(function(e) {
+    if (e.which == 13) {
+        redeemCode();
+    }
+});
+
+$(".submit-btn").click(function() {
+    redeemCode();
+});
+
+function redeemCode() {
+    var root = location.protocol + '//' + location.host;
+    var url_mask = "{% url 'redeem' code=1234 %}".replace(/1234/, $("#code").val());
+    window.location.href = (root + url_mask);
+}
+</script>
+{% endblock %}
