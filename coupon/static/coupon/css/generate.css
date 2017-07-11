@@ -74,7 +74,9 @@ span#like-us-text {
 .barcode-img {
     position: absolute;
     bottom: 6%;
-    right: 29%;  
+    right: 0%;  
+    left: 0%;
+    margin: 0 auto;
     height: 15%;
     background: white;
 }
