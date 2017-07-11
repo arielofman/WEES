@@ -51,8 +51,8 @@ def generate(request, **kwargs):
 	refresh_rate = datetime.timedelta(hours=12)
 	# a set expiration for all coupons
 
-	# expires july 2nd 11:59
-	expiration = datetime.datetime(2018, 7, 2, 23, 59)
+	# expiration date
+	expiration = datetime.datetime(2017, 8, 1, 7, 0)
 
 	# check if customer is in the DB otherwise create new customer
 	try:
@@ -69,6 +69,7 @@ def generate(request, **kwargs):
 
 	# coupon starts july 1st, at 7am
 	COUPON_START = datetime.datetime(2017, 7, 1, 7, 0)
+
 	# NOTE: this method assumes there's only 1 unredeemed coupon per IP
 	# if the customer has an unredeemed coupon
 	if(unredeemed):
@@ -80,7 +81,7 @@ def generate(request, **kwargs):
 			coupon_uid = create_coupon(customer, COUPON_START, expiration) 
 		# if the coupon didn't expire
 		elif(unredeemed.expires > now):
-			# give customer back their same coupon 
+			# give customer back the same coupon 
 			coupon_uid = unredeemed.coupon_code 
 	# if the customer only has redeemed coupons and no unredemed coupons
 	elif(redeemed and not unredeemed):  
