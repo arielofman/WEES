@@ -62,7 +62,7 @@ span#instructions {
 span#like-us-text {
     font-family: 'Droid Sans', sans-serif;
     font-size: 13px;
-    color: #7c7d7e;
+    color: #3d3d3d;
     padding-left: 14px;
     display: inline-block;
 }
@@ -97,9 +97,9 @@ img {
     }
 }
 
-@media (min-width:450px) {
+@media (min-width:440px) {
     .coupon-img {
-        width: 450px;
+        width: 440px;
     }
     span#instructions {
         font-size: 15px;
