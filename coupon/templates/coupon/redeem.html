@@ -40,7 +40,8 @@
 	            code: '{{ code }}', 
 	        },
 	        success: function(data, textStatus) {
-	        	$('.center-buttons').html('<label class="expired"><strong>SUCCESSFULLY REDEEMED!</strong></label><button class="scan-again">Scan Again</button>');
+	        	$('.center-buttons').html('<label class="expired"><strong>SUCCESSFULLY REDEEMED!</strong></label>');
+	        	$('.center-buttons').append('<button class="scan-again">Scan Again</button>');
 	        },
 	    }).done(function(msg) {
 	        console.log("Redeemed coupon!");

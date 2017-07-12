@@ -16,8 +16,8 @@
 
 <body>
     {% block content %} {% endblock %}
-    <script>
-    $(".scan-again").click(function() {
+    <script> 
+    $('.center-buttons').on('click', '.scan-again', function(){
         scan_again();
     });
 

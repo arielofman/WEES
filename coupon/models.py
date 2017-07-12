@@ -9,7 +9,7 @@ class Coupon(models.Model):
 	customer_fk = models.ForeignKey(Customer, on_delete=models.CASCADE)
 	date_created = models.DateTimeField()
 	redeemed = models.BooleanField(default=False)
-	date_redeemed = models.DateTimeField(null=True)
+	date_redeemed = models.DateTimeField(null=True, blank=True)
 	start_date = models.DateTimeField()
 	expires = models.DateTimeField()
 

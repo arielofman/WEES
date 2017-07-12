@@ -23,22 +23,7 @@
 {% endblock %} 
 
 {% block customjs %}
-<script> 
-
-var typingTimer;                //timer identifier
-var doneTypingInterval = 2000;  //time in ms 
-
-$('#code').on('keyup keypress', function() {
-    clearTimeout(typingTimer);
-    if ($('#code').val()) {
-        typingTimer = setTimeout(doneTyping, doneTypingInterval);
-    }
-});
-
-function doneTyping () {
-    redeemCode();
-}
-
+<script>  
 $(".submit-btn").click(function() {
     redeemCode();
 });
