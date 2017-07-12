@@ -52,7 +52,7 @@ def generate(request, **kwargs):
 	# a set expiration for all coupons
 
 	# expiration date
-	expiration = datetime.datetime(2017, 8, 1, 7, 0)
+	expiration = datetime.datetime(2017, 7, 31, 23, 59)
 
 	# check if customer is in the DB otherwise create new customer
 	try:
@@ -67,8 +67,8 @@ def generate(request, **kwargs):
 		unredeemed = None
 	redeemed = coupons.filter(redeemed=True) 
 
-	# coupon starts july 1st, at 7am
-	COUPON_START = datetime.datetime(2017, 7, 1, 7, 0)
+	# coupon starts july 15, at 7am
+	COUPON_START = datetime.datetime(2017, 7, 15, 7, 0)
 
 	# NOTE: this method assumes there's only 1 unredeemed coupon per IP
 	# if the customer has an unredeemed coupon
