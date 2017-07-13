@@ -22,8 +22,19 @@ def get_client_ip(request):
         ip = request.META.get('REMOTE_ADDR')
     return ip
 
+def generate_uid(uid_length, uid_chars): 
+	try: 
+		while(True):
+			coupon_uid = get_random_string(length=uid_length, allowed_chars=uid_chars)
+			coupon = Coupon.objects.get(coupon_code=coupon_uid)
+	except ObjectDoesNotExist:
+		pass
+
+	return coupon_uid
+
 def create_coupon(customer_obj, coupon_starts, coupon_expires):
-	coupon_uid = get_random_string(length=9, allowed_chars="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")  
+	coupon_uid = generate_uid(9, "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")
+	 
 	now = timezone.now()
 	Coupon.objects.create(coupon_code=coupon_uid, 
 		customer_fk=customer_obj, 
