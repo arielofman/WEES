@@ -135,6 +135,7 @@ def redeem(request, **kwargs):
 
 		# When you redeem coupon, your refresh is set to the date and time you redeemed coupon
 		coupon.customer_fk.refresh = now
+		coupon.customer_fk.save()
 
 		# update when it was redeemed for data
 		return render(request, "coupon/redeem.html", {"code": kwargs['code'], "expires":date_expires, "created":date_created})
