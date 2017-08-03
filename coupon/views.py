@@ -35,12 +35,12 @@ def generate_uid(uid_length, uid_chars):
 
 	return coupon_uid
 
-def create_coupon(customer_obj, coupon_starts, coupon_expires):
+def create_coupon(customer_obj, coupon_obj, coupon_starts, coupon_expires):
 	coupon_uid = generate_uid(9, "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")
 
 	now = timezone.now()
 	Coupon.objects.create(coupon_code=coupon_uid, 
-		customer_fk=customer_obj, 
+		customer_fk=customer_obj,
 		coupon_type=coupon_obj,
 		date_created=now,
 		redeemed=False,
