@@ -23,7 +23,7 @@ from django.views.generic import RedirectView
 from django.conf.urls import handler404 
 
 urlpatterns = [ 
-    url(r'^$', RedirectView.as_view(url='coupon/generate', permanent=False)),
+    url(r'^$', RedirectView.as_view(url='coupon/1/', permanent=False)),
     url(r'^admin/', admin.site.urls),
     url(r'^coupon/', include('coupon.urls')),
     url(r'^accounts/', include('accounts.urls')), 

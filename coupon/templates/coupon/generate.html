@@ -1,5 +1,33 @@
-{% extends 'coupon/base.html' %} {% load staticfiles %} {% load barcode_tags %} {% block customcss %}
-<link rel="stylesheet" type="text/css" href="{% static 'coupon/css/generate.css' %}"> {% endblock %} {% block content %}
+{% extends 'coupon/base.html' %} {% load staticfiles %} {% load barcode_tags %} 
+
+{% block customcss %} 
+<link rel="stylesheet" type="text/css" href="{% static 'coupon/css/generate.css' %}"> 
+
+<style>
+body { 
+    background-color: {{coupon.background_color}};
+}
+
+.print-bar { 
+    background: {{coupon.header_bg_color}}; 
+}
+
+span#instructions { 
+    color: {{coupon.header_text_color}};
+}
+
+.barcode-img {
+    bottom: {{coupon.position_bottom}};
+}
+
+span#like-us-text { 
+    color: {{coupon.like_text_color}};
+}
+</style>
+
+{% endblock %} 
+
+{% block content %}
 <div class="container-fluid">
     <div class="row coupon-wrapper">
         <div class="col-sm-12">
@@ -12,7 +40,7 @@
                     </br></span>
                     <span id="coupon-code"><strong>CODE:</strong> {% barcode_text %}</span>
                 </div>
-                <img class="coupon-img img-responsive" src="{% static 'coupon/images/coupon-bg.jpg' %}" alt="{{ text }}" /> {% bc_from_text %} 
+                <img class="coupon-img img-responsive" src="{{ coupon.img_url }}" alt="{{ text }}" /> {% bc_from_text %} 
             </div>
         </div>  
         <div class="col-sm-12 no-print">

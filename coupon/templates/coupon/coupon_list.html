@@ -1,0 +1,29 @@
+{% extends 'coupon/base.html' %}
+{% load staticfiles %} 
+
+{% block customcss %}
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{% static 'coupon/css/coupon_list.css' %}"> 
+{% endblock %} 
+
+{% block content %}
+ 
+ 
+ {% for coupon in active_coupons %}
+
+
+<a href="../{{coupon.id}}">
+<div class="card card-1">
+    <img src="{{coupon.cover_url}}"></img>
+    <div class="transparent"></div> 
+</div> 
+</a>
+
+{% endfor %} 
+
+{% endblock %} 
+
+{% block customjs %}
+<script>   
+</script>
+{% endblock %}
