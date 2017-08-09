@@ -1,0 +1,45 @@
+{% extends 'coupon/base.html' %}
+{% load staticfiles %} 
+
+{% block customcss %}
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{% static 'coupon/css/codegate.css' %}"> 
+{% endblock %} 
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row coupon-wrapper">
+        <div class="col-sm-12">
+            <div id="summary">
+                <form action="/your-server-side-code" method="POST">
+				  <script
+				    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+				    data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
+				    data-currency="CAD"
+				    data-amount="999"
+				    data-name="Menchie's Oak Ridges"
+				    data-description="Cake Purchase"
+				    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+				    data-locale="auto"
+				    data-zip-code="true">
+				  </script>
+				</form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 
+
+{% block customjs %}
+<script>  
+$(".submit-btn").click(function() {
+    redeemCode();
+});
+
+function redeemCode() {
+    var root = location.protocol + '//' + location.host;
+    var url_mask = "{% url 'redeem' code=1234 %}".replace(/1234/, $("#code").val());
+    location.href = root + url_mask;
+}
+</script>
+{% endblock %}

@@ -122,7 +122,7 @@ def generate(request, **kwargs):
 	return render(request, "coupon/generate.html", {"code": coupon_uid, "coupon": selected_coupon})
 
 
-@login_required(login_url='/error/', redirect_field_name=None)
+@login_required(login_url='/admin/', redirect_field_name=None)
 def code_gate(request, **kwargs):
 	return render(request, "coupon/code_gate.html")
 

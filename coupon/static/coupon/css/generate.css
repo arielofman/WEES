@@ -4,17 +4,17 @@
     box-sizing: border-box;
 }
 
-body { 
+html, body { 
     width: 100%;
     height: 100%;
     background-color: white;
 }
 
-.col-sm-12 {
-    height: 100%;
+.col-sm-12 { 
     padding: 0px !important;
     margin: 0px !important;
     width: 100%;
+    height: 100%;
     overflow: auto;
 }
 
@@ -22,10 +22,76 @@ body {
     height: 100%;
 }
 
+.coupon-wrapper {
+    height: 100%;
+    height: 100%; 
+    background-color: purple;
+}
+
+.print-bar {
+    background: #60a3dc;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.coupon-img {
+    margin: 0 auto;
+    height: 90%;
+}
+
 #coupon-container {
-    float: left;
+    margin: 0 auto;
     position: relative;
     overflow: hidden; 
+    width: 100%;
+    height: 95%;
+}
+
+#coupon-code {
+    font-family: 'Roboto', sans-serif; 
+}
+
+#coupon { 
+     position: relative;
+     margin: 0 auto;
+     height: 100%; 
+}
+
+.barcode-img {  
+    background: white; 
+    position: absolute;
+    bottom: 16%;
+    right: 0%;  
+    left: 0%;
+    margin: 0 auto;
+    height: 15%;
+}
+
+img {
+    pointer-events: none;
+    -webkit-user-select: none;
+}
+
+span#instructions {
+    font-family: 'Roboto', sans-serif;
+    font-size: 11px;
+    color: white;
+}
+
+.center {
+    text-align: center;
+}
+
+span#like-us-text {
+    font-family: 'Droid Sans', sans-serif;
+    font-size: 13px;
+    color: white;
+    padding-left: 14px;  
+}
+
+.glyphicon-heart {
+    color: #f22f6a;
 }
 
 .modal-body {
@@ -35,49 +101,6 @@ body {
    padding: 13px;
    padding-bottom: 0px;
 }
-
-#coupon-code {
-    font-family: 'Roboto', sans-serif; 
-}
-
-.print-bar {
-    background: #60a3dc;
-    text-align: center;
-}
-
-span#instructions {
-    font-family: 'Roboto', sans-serif;
-    font-size: 11px;
-    color: white;
-}
-
-span#like-us-text {
-    font-family: 'Droid Sans', sans-serif;
-    font-size: 13px;
-    color: #3d3d3d;
-    padding-left: 14px;
-    display: inline-block;
-}
-
-.glyphicon-heart {
-    color: #f22f6a;
-}
-
-.barcode-img {
-    position: absolute;
-    bottom: 6%;
-    right: 0%;  
-    left: 0%;
-    margin: 0 auto;
-    height: 15%;
-    background: white;
-}
-
-img {
-    pointer-events: none;
-    -webkit-user-select: none;
-}
-
 
 @media print {
     .no-print,
@@ -97,10 +120,18 @@ img {
     }
 }
 
-@media (min-width:440px) {
-    .coupon-img {
-        width: 440px;
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2) { 
+
+    .print-bar { 
+        width: 100%; 
     }
+
+}
+
+@media (min-width:440px) {  
     span#instructions {
         font-size: 15px;
     }

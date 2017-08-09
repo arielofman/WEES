@@ -40,13 +40,18 @@ span#like-us-text {
                     </br></span>
                     <span id="coupon-code"><strong>CODE:</strong> {% barcode_text %}</span>
                 </div>
-                <img class="coupon-img img-responsive" src="{{ coupon.img_url }}" alt="{{ text }}" /> {% bc_from_text %} 
+                <div id="coupon">
+                    <img class="coupon-img img-responsive" src="{{ coupon.img_url }}" alt="{{ text }}" />
+                    {% bc_from_text %}  
+                </div>
+
+            </div>
+            <div class="no-print center">
+                <span id="like-us-text">Like us on Facebook! <span class="glyphicon glyphicon-heart"></span></span>
+                <div class="fb-like" data-href="https://www.facebook.com/menchiesoakridges/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
             </div>
         </div>  
-        <div class="col-sm-12 no-print">
-            <span id="like-us-text">Like us on Facebook! <span class="glyphicon glyphicon-heart"></span></span>
-            <div class="fb-like" data-href="https://www.facebook.com/menchiesoakridges/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
-        </div>
+        
     </div>
     <!-- Creates the bootstrap modal where the image will appear -->
     <div class="modal fade no-print" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -100,13 +105,6 @@ $('#myModal').modal('show');
 $("#coupon-container").on("click", function() {
     $('#imagepreview').attr('src', $('.barcode-img').attr('src'));
     $('#imagemodal').modal('show');
-});
- 
-$(function() {
-   $(window).keypress(function(e) {
-       var key = e.which;
-       console.log(key);
-   });
 });
 
 (function(d, s, id) {
