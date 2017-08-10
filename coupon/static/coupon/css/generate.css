@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 @import url('https://fonts.googleapis.com/css?family=Droid+Sans');
+
 * {
     box-sizing: border-box;
 }
@@ -36,7 +37,7 @@ html, body {
 
 .coupon-img {
     margin: 0 auto;
-    height: 88%;
+    height: 89%;
 }
 
 #coupon-container {
@@ -44,7 +45,7 @@ html, body {
     position: relative;
     overflow: hidden; 
     width: 100%;
-    height: 93%;
+    height: 95%;
 }
 
 #coupon-code {
@@ -99,16 +100,14 @@ span#like-us-text {
    overflow-y: scroll;
    padding: 13px;
    padding-bottom: 0px;
-}
+} 
 
 @media print {
     .no-print,
     .no-print * {
         display: none !important;
     }
-}
 
-@media print {
     #coupon-container {
         height: 60% !important;
         width: 60% !important;
@@ -119,15 +118,11 @@ span#like-us-text {
     }
 }
 
-@media only screen 
-  and (min-device-width: 320px) 
-  and (max-device-width: 480px)
-  and (-webkit-min-device-pixel-ratio: 2) { 
-
-    .print-bar { 
-        width: 100%; 
+/* Smartphones */
+@media only screen and (max-width: 760px) {
+    .coupon-img {
+        width: 100%;
     }
-
 }
 
 @media (min-width:440px) {  
