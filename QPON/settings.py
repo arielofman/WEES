@@ -20,14 +20,14 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 try:
     # SECURITY WARNING: keep the secret key used in production secret!
-    SECRET_KEY = os.environ['SECRET_KEY']
+    SECRET_KEY = 'Bu7OmTE1RnwYqu11I41ejiYmg1GAsIXAuQwHgTxGibCFJzlwDKftRuFFVZ65uRh*'
 
     # SECURITY WARNING: don't run with debug turned on in production!
-    DEBUG = (os.environ['DEBUG'] == 'True')
+    DEBUG = False
 except KeyError:
     pass
 
-ALLOWED_HOSTS = ["qrcoupon.herokuapp.com","menchiesoakridges.com","www.menchiesoakridges.com"]
+ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'commons',
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -78,10 +79,10 @@ WSGI_APPLICATION = 'QPON.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': '***',
-        'USER': '***',
+        'NAME': 'jwpgnjcz',
+        'USER': 'jwpgnjcz',
         'PASSWORD': '***',
-        'HOST': '***',
+        'HOST': 'batyr.db.elephantsql.com',
         'PORT': '5432',
     }
 }
@@ -139,4 +140,4 @@ except ImportError:
     DATABASES['default'].update(db_from_env)
 
     # Simplified static file serving.
-    STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
