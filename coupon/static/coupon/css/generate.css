@@ -33,29 +33,30 @@ html, body {
     text-align: center;
     width: 100%;
     margin: 0 auto;
+    padding: 10px;
 }
-
-.coupon-img {
-    margin: 0 auto;
-    height: 94%;
-}
-
-#coupon-container {
+ 
+#coupon-container { 
     margin: 0 auto;
     position: relative;
-    overflow: hidden; 
-    width: 100%;
-    height: 95%;
+    overflow: hidden;  
+    width: 100%; 
 }
 
 #coupon-code {
     font-family: 'Roboto', sans-serif; 
 }
 
-#coupon { 
+#coupon {  
      position: relative;
-     margin: 0 auto;
-     height: 100%; 
+     margin: 0 auto; 
+     max-width: 400px;
+    height: 100%;
+}
+
+.coupon-img { 
+    width: 100%;
+    height: 100%;
 }
 
 .barcode-img {  
@@ -70,7 +71,11 @@ html, body {
 
 img {
     pointer-events: none;
-    -webkit-user-select: none;
+    user-select: none;
+}
+
+.btn-custom {
+    margin-right: 11px;
 }
 
 span#instructions {
